@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Prediction</title>
+    <style>
+        /* Reset default margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles for body and HTML */
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Styles for the main container */
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7) url('https://ucarecdn.com/e1b52671-5975-4cad-9176-ccc764c8c92f/audio.png') no-repeat center center;
+            background-size: cover; /* Ensures the image covers the entire container */
+            border-radius: 10px;
+            position: relative; /* Ensure positioning context for child elements */
+        }
+
+        /* Styles for headings inside the container */
+        .container h1 {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        /* Styles for forms inside the container */
+        .container form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Styles for file input within forms */
+        .container form input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        /* Styles for buttons within forms */
+        .container form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Hover effect for buttons */
+        .container form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styles for result section */
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Audio Prediction</h1>
+        <form id="audio-form" method="post" enctype="multipart/form-data" action="{{ url_for('predict_audio') }}">
+            <input type="file" id="audio-file" name="audiofile" accept="audio/*">
+            <button type="submit">Predict</button>
+        </form>
+        <div id="audio-result" class="result">
+            {% if prediction %}
+                <p>{{ prediction }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

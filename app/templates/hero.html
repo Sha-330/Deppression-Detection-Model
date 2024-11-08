@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detection - Home</title>
+    <style>
+        /* Reset default margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #111;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .auth-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .auth-links .dummy-button {
+            background-color: #ffd700;
+            color: #111;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: not-allowed;
+        }
+
+        .auth-links .dummy-button:hover {
+            background-color: #ffd700;
+            color: #111;
+        }
+
+        .hero {
+            background: url('https://ucarecdn.com/b99766b5-d445-482d-b39a-fc35f8ff1120/hero.png') no-repeat center center/cover;
+            height: calc(100vh - 60px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .custom-button {
+            display: inline-block;
+            background: #111;
+            color: #ffd700;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 20px;
+            border: 1px solid #ffd700;
+        }
+
+        .custom-button:hover {
+            background: #ffd700;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">DEPRESSION DETECTION</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link">HOME</a></li>
+                    <li><a href="#" class="nav-link">CONTACT</a></li>
+                    <li><a href="#" class="nav-link">ABOUT</a></li>
+                </ul>
+            </nav>
+            <div class="auth-links">
+                <a href="login.html" class="dummy-button">LOG IN</a>
+                <a href="signup.html" class="dummy-button">SIGN UP</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>DEPRESSION DETECTION</h1>
+                <p>Welcome To Depression Detection, Your Trusted Companion On The Journey To Mental Wellness.</p>
+                <a href="{{ url_for('second') }}" class="custom-button">GET STARTED</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

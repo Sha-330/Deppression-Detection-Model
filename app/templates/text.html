@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://ucarecdn.com/3540195c-0a6e-4385-a47a-52139a48e972/text_det.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .container textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #555;
+            margin-bottom: 20px;
+            resize: vertical;
+            min-height: 150px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity as needed */
+        }
+
+        .container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='text-styles.css') }}">
+ </style>
+</head>
+<body>
+ <div class="container">
+     <h1>Text Input</h1>
+     <form action="{{ url_for('predict_text') }}" method="post">
+         <textarea id="textInput" name="text_input" placeholder="Enter your text here..." required></textarea>
+         <button type="submit">Submit Text</button>
+     </form>
+     {% if result %}
+         <p>Analysis Result: {{ result }}</p>
+     {% endif %}
+ </div>
+</body>
+</html>

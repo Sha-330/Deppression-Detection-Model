@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Detection - Second Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #111 url('https://ucarecdn.com/62f45790-dce7-4bdb-9bda-2f16bcb9fedf/selection.png') no-repeat center center;
+            background-size: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: #111;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .media-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .media-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 22%;
+            margin: 20px 0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .media-card img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .media-card h2 {
+            margin: 20px 0 10px;
+            font-size: 1.5em;
+        }
+
+        .media-card p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .custom-button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .media-card {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .media-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">DEPRESSION DETECTION</h1>
+            <h2>Select an Option:</h2>
+        </div>
+    </header>
+    <main>
+        <section class="media-section">
+            <article class="media-card">
+                <img src="https://ucarecdn.com/e1b52671-5975-4cad-9176-ccc764c8c92f/audio.png" alt="High-quality audio file">
+                <h2>Audio</h2>
+                <p>Please Select An Audio File That Is High-Quality, Relevant To The Topic, And Properly Licensed For Use</p>
+                <a href="{{ url_for('audio') }}" class="custom-button">Select Audio</a>
+            </article>
+            <article class="media-card">
+                <img src="https://ucarecdn.com/59dfefeb-0eab-415f-bd1f-6fd7f998331b/webcam_det.png" alt="Live webcam feed">
+                <h2>Live Webcam</h2>
+                <p>Please Select A Video That Is High-Quality, Relevant To The Topic, And Aligns With The Intended Message. Ensure The Video Is Appropriately Licensed For Use</p>
+                <a href="{{ url_for('webcam') }}" class="custom-button">Select Video</a>
+            </article>
+            <article class="media-card">
+                <img src="https://ucarecdn.com/4f82a931-5cb5-4181-9956-13783459efb3/image.png" alt="High-quality image">
+                <h2>Image</h2>
+                <p>Please Select An Image That Is High-Quality, Relevant To The Topic, And Aligns With The Intended Message. Ensure The Image Is Appropriately Licensed For Use</p>
+                <a href="{{ url_for('image_route') }}" class="custom-button">Select Image</a>
+            </article>
+            <article class="media-card">
+                <img src="https://ucarecdn.com/3540195c-0a6e-4385-a47a-52139a48e972/text_det.png" alt="Text input">
+                <h2>Text</h2>
+                <p>Please Enter Text That Is Clear, Relevant To The Topic, And Concise. Ensure The Text Is Properly Formatted And Free Of Errors</p>
+                <a href="{{ url_for('text') }}" class="custom-button">Enter Text</a>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

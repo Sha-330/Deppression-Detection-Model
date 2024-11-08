@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Emotion Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js" integrity="sha512-D/Orb0geV3m1ZjzaUsf4z8n9rT2td+M9UplwT7lZgUVyBXvyuxP60lPc+B8To21vZXJ9Q0sS4QZD2WZns97Ejw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        /* Add your CSS styles here */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        #emotion_display {
+            width: 640px;
+            height: 480px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .face-overlay {
+            position: absolute;
+            border: 2px solid #ff0000;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Live Emotion Prediction from Webcam</h1>
+        <div>
+            <canvas id="emotionChart" width="400" height="300"></canvas>
+        </div>
+        <div>
+            <img id="emotion_display" src="{{ url_for('video_feed') }}">
+        </div>
+    </div>
+    <script>
+        var ctx = document.getElementById('emotionChart').getContext('2d');
+        var labels = ['angry', 'disgust', 'fear', 'happy', 'sadness', 'surprise', 'neutral'];
+        var emotionChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Prediction Accuracy',
+                    data: Array(labels.length).fill(0),
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 1
+                    }
+                }
+            }
+        });
+
+        var socket = io.connect('http://' + document.domain + ':' + location.port + '/socket');
+        socket.on('connect', function() {
+            console.log('Connected to WebSocket');
+        });
+
+        socket.on('emotion_prediction', function(prediction) {
+            var predictionData = JSON.parse(prediction);
+            emotionChart.data.datasets[0].data = predictionData;
+            emotionChart.update();
+        });
+
+        var emotionDisplay = document.getElementById('emotion_display');
+        emotionDisplay.onload = function() {
+            console.log('Image loaded');
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext('2d');
+            canvas.width = emotionDisplay.width;
+            canvas.height = emotionDisplay.height;
+            
+            socket.on('emotion_prediction', function(prediction) {
+                var predictionData = JSON.parse(prediction);
+                emotionChart.data.datasets[0].data = predictionData;
+                emotionChart.update();
+
+                context.clearRect(0, 0, canvas.width, canvas.height);
+
+                predictionData.forEach(function(probability, index) {
+                    if (probability > 0.5) {  // Adjust threshold as needed
+                        var label = labels[index];
+                        var color = '#ff0000';  // Red color for overlay
+                        context.strokeStyle = color;
+                        context.lineWidth = 2;
+                        context.beginPath();
+                        context.rect(10, 10, 100, 100);  // Adjust rectangle dimensions based on face position
+                        context.stroke();
+                    }
+                });
+
+                emotionDisplay.src = canvas.toDataURL();
+            });
+        };
+    </script>
+</body>
+</html>

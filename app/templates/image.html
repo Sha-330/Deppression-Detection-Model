@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('https://ucarecdn.com/4f82a931-5cb5-4181-9956-13783459efb3/image.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .container label,
+        .container button {
+            display: block;
+            margin: 10px 0;
+        }
+
+        .container input[type="file"] {
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #b6a99b;
+            border: 2px solid #4c4c4c;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .container .file-name {
+            margin-bottom: 20px;
+        }
+
+        .container button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4c4c4c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .container button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Prediction</h1>
+        <form action="{{ url_for('predict_image') }}" method="post" enctype="multipart/form-data">
+            <input type="file" id="imagefile" name="imagefile" accept="image/*" required>
+            <button type="submit">Upload</button>
+        </form>
+        {% if predicted_emotion %}
+            <p>Predicted Emotion: {{ predicted_emotion }}</p>
+            <p>Depression Status: {{ depression_status }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
