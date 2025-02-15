@@ -18,15 +18,15 @@ app = Flask(__name__)
 socketio = SocketIO(app)
 
 # Define upload folders
-UPLOAD_FOLDER = r'D:/Telegram Desktop/depression/app/static/uploads'
+UPLOAD_FOLDER = r'path to your folder that the images need to upload'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Define paths to trained models
-TEXT_MODEL_PATH = r'D:/Telegram Desktop/depression/text prediction/trained model/emotion_classifier_model.pkl'
-TEXT_VECTORIZER_PATH = r'D:/Telegram Desktop/depression/text prediction/trained model/vectorizer.pkl'
-AUDIO_MODEL_PATH = r'D:/Telegram Desktop/depression/speech prediction/trained_model/decision_tree_model.joblib'
-IMAGE_MODEL_PATH = r'D:/Telegram Desktop/depression/facial prediction/trained model/decision_tree_model.joblib'
-HAAR_CASCADE_PATH = r'D:/Telegram Desktop/depression/facial prediction/haarcascade_frontalface_default.xml'
+TEXT_MODEL_PATH = r'path to you model'
+TEXT_VECTORIZER_PATH = r'.../text prediction/trained model/vectorizer.pkl'
+AUDIO_MODEL_PATH = r'..../speech prediction/trained_model/decision_tree_model.joblib'
+IMAGE_MODEL_PATH = r'.....facial prediction/trained model/decision_tree_model.joblib'
+HAAR_CASCADE_PATH = r'...../facial prediction/haarcascade_frontalface_default.xml'
 
 # Initialize VGG16 model for image and webcam predictions
 vgg_model = VGG16(weights='imagenet', include_top=False, pooling='avg')
