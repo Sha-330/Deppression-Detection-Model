@@ -4,7 +4,7 @@ from keras.preprocessing import image
 from keras.applications.vgg16 import VGG16, preprocess_input
 
 # Load the trained model
-model_path = "D:/depression/facial prediction/trained model/decision_tree_model.joblib"
+model_path = "...../facial prediction/trained model/decision_tree_model.joblib"
 clf = joblib.load(model_path)
 
 # Define emotions and corresponding labels
@@ -41,6 +41,6 @@ def predict_emotion(img_path):
         return None, None
 
 # Test the function with an image path
-test_img_path = "C:/Users/FMT COMPUTERS/Downloads/dep fresh/images/validation/sad/172.jpg"
+test_img_path = "...../images/validation/sad/172.jpg"
 predicted_emotion, emotion_type = predict_emotion(test_img_path)
 print(f"Predicted emotion for {test_img_path}: {predicted_emotion} ({emotion_type})")
