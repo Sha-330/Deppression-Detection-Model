@@ -16,7 +16,7 @@ def extract_audio_features(audio_file, sample_rate):
     return mfccs_mean
 
 # Directory where your dataset is stored
-dataset_dir = r'C:/Users/muneer/Downloads/speech/TESS Toronto emotional speech set data'
+dataset_dir = r'..../speech/TESS Toronto emotional speech set data'
 
 # Lists to store features and labels
 X_audio = []
@@ -69,7 +69,7 @@ print(f"Accuracy: {accuracy:.2f}")
 print(classification_report(y_test, predictions))
 
 # Create the trained_model directory if it doesn't exist
-save_dir = r'C:/Users/muneer/Downloads/speech/trained_model'
+save_dir = r'..../speech/trained_model'
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
 
