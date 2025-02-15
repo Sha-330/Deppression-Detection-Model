@@ -6,9 +6,9 @@ from sklearn.metrics import accuracy_score
 import joblib
 
 # File paths for datasets
-emotion_dataset_path = r'D:/Telegram Desktop/depression/text prediction/dataset/emotion_dataset.csv'
-text_emotion_path = r'D:/Telegram Desktop/depression/text prediction/dataset/text_emotion.csv'
-tweet_emotions_path = r'D:/Telegram Desktop/depression/text prediction/dataset/tweet_emotions.csv'
+emotion_dataset_path = r'..../text prediction/dataset/emotion_dataset.csv'
+text_emotion_path = r'..../text prediction/dataset/text_emotion.csv'
+tweet_emotions_path = r'..../text prediction/dataset/tweet_emotions.csv'
 
 try:
     # Load datasets
@@ -42,8 +42,8 @@ try:
     clf.fit(X_train, y_train)
 
     # Save the trained model and vectorizer
-    model_save_path = r'D:/Telegram Desktop/depression/text prediction/trained model/emotion_classifier_model.pkl'
-    vectorizer_save_path = r'D:/Telegram Desktop/depression/text prediction/trained model/vectorizer.pkl'
+    model_save_path = r'...../text prediction/trained model/emotion_classifier_model.pkl'
+    vectorizer_save_path = r'...../text prediction/trained model/vectorizer.pkl'
     
     joblib.dump(clf, model_save_path)
     joblib.dump(vectorizer, vectorizer_save_path)
