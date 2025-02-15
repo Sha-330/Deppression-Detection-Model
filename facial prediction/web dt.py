@@ -6,7 +6,7 @@ from keras.preprocessing import image
 import time
 
 # Load the trained model
-model_path = "D:/depression/facial prediction/trained model/decision_tree_model.joblib"
+model_path = "..../facial prediction/trained model/decision_tree_model.joblib"
 clf = joblib.load(model_path)
 
 # Define emotions and corresponding labels
