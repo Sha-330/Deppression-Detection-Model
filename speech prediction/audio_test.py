@@ -10,7 +10,7 @@ import tempfile
 logging.basicConfig(level=logging.INFO)
 
 # Load the trained model
-save_dir = r'D:/depression/app/trained_model'
+save_dir = r'.../app/trained_model'
 model_name = 'decision_tree_model.joblib'
 model_path = os.path.join(save_dir, model_name)
 dtree = joblib.load(model_path)
@@ -72,7 +72,7 @@ def predict_depression(file_path, sample_rate=44100):
 # Example usage:
 if __name__ == "__main__":
     # Replace with the path to your test audio or video file
-    test_file = r'D:/depression/app/static/uploads/audio/example_audio.wav'
+    test_file = r'...../app/static/uploads/audio/example_audio.wav'
     
     # Predict depression status
     predicted_depression_status = predict_depression(test_file)
