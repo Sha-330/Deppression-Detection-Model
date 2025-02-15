@@ -1,8 +1,8 @@
 import joblib
 
 # Load the trained model and vectorizer
-model_load_path = r'D:/Telegram Desktop/depression/text prediction/trained model/emotion_classifier_model.pkl'
-vectorizer_load_path = r'D:/Telegram Desktop/depression/text prediction/trained model/vectorizer.pkl'
+model_load_path = r'...../text prediction/trained model/emotion_classifier_model.pkl'
+vectorizer_load_path = r'...../text prediction/trained model/vectorizer.pkl'
 
 # Define depressed and non-depressed emotions
 depressed_emotions = ['sadness', 'emptiness', 'worry', 'shame']
