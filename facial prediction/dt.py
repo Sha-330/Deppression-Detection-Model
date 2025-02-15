@@ -8,8 +8,8 @@ from sklearn.metrics import accuracy_score, confusion_matrix, ConfusionMatrixDis
 import matplotlib.pyplot as plt
 
 # Define directories
-train_data_dir = "C:/Users/FMT COMPUTERS/Downloads/dep fresh/images/train"
-validation_data_dir = "C:/Users/FMT COMPUTERS/Downloads/dep fresh/images/validation"
+train_data_dir = "....../images/train"
+validation_data_dir = "......./images/validation"
 
 # Define emotions and corresponding labels
 emotion_labels = {'angry': 0, 'sad': 1, 'fear': 2, 'happy': 3, 'surprise': 4, 'neutral': 5, 'disgust': 6}
@@ -81,6 +81,6 @@ plt.title('Confusion Matrix')
 plt.show()
 
 # Save the trained model
-model_save_path = "C:/Users/FMT COMPUTERS/Downloads/dep fresh/decision_tree_model.joblib"
+model_save_path = ".../decision_tree_model.joblib"
 joblib.dump(clf, model_save_path)
 print(f"Model saved to {model_save_path}")
