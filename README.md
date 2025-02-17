@@ -70,10 +70,6 @@ vectorizer = joblib.load("vectorizer.pkl")
 - **Audio Emotion Detection**: Prints accuracy score.
 - **Text Emotion Detection**: Outputs predicted emotion for a sample text.
 
-## Future Enhancements
-- Integrate **real-time facial emotion recognition**.
-- Improve **accuracy with deep learning models**.
-- Expand **text dataset for better sentiment analysis**.
 
 ## Contributors
 - **Mazin Muneer (mazi)** - [GitHub](https://github.com/Sha-330) | [LinkedIn](https://www.linkedin.com/in/mazin-muneer?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BdvLryXBiQjypj5RZtQSCow%3D%3D)
