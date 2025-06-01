@@ -74,5 +74,5 @@ vectorizer = joblib.load("vectorizer.pkl")
 ## Contributors
 - **Mazin Muneer (mazi)** - [GitHub](https://github.com/maaazzinn) | [LinkedIn](https://www.linkedin.com/in/mazin-muneer?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BdvLryXBiQjypj5RZtQSCow%3D%3D)
 - **Ajmal Shan. P (Sha)** - [GitHub](https://github.com/Sha-330) | [LinkedIn](https://www.linkedin.com/in/ajmal-shan-p-591258244)
-- **Adam Nahan(Adam P)** - [GitHub]((https://github.com/adamnahan)) | [LinkedIn](https://www.linkedin.com/in/adam-nahan-34a95524a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BCLRzX0qSRBC%2FrcGGVwgkQw%3D%3D)
+- **Adam Nahan(Adam P)** - [GitHub](https://github.com/adamnahan) | [LinkedIn](https://www.linkedin.com/in/adam-nahan-34a95524a?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BCLRzX0qSRBC%2FrcGGVwgkQw%3D%3D)
 
